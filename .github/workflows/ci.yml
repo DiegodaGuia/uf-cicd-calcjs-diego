@@ -33,13 +33,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-- name: Authenticate to npm
+      - name: Authenticate to npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-- name: Publish to npm
+      - name: Publish to npm
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-- name: SonarCloud Scan
+      - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2
         with:
           projectKey: <your-project-key>

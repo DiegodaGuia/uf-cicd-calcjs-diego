@@ -39,3 +39,10 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+- name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v2
+        with:
+          projectKey: <your-project-key>
+          organization: <your-organization-key>
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -18,11 +18,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-- name: Install dependencies
+      - name: Install dependencies
         run: npm install
-- name: Run tests
+      - name: Run tests
         run: npm test
-publish:
+  publish:
     runs-on: ubuntu-latest
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
